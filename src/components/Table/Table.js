@@ -14,37 +14,33 @@ export default function Table() {
     value: "",
   });
   const size = 100;
-  
+
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilter((prevFilter) => ({ ...prevFilter, [name]: value }));
+    handleFilterSubmit();
   };
+
+  const handleFilterSubmit = () => {
+    setPage(1);
+    setData([]);
+  };
+
+  useEffect(() => {
+    handleSubmit();
+  }, [])
 
   const handleSubmit = useCallback(async () => {
     try {
       const responseData = await fetchEntities(page, size, filter);
+      if (responseData.length === 0)
+        return;
       setData((prevData) => [...prevData, ...responseData]);
       setPage((prevPage) => prevPage + 1);
     } catch (error) {
       console.error("Json is invalid!");
     }
   }, [page, size, filter]);
-
-  const loadMoreData = () => {
-    setPage((prevPage) => prevPage + 1);
-    handleSubmit();
-  };
-
-  const handleFilterSubmit = () => {
-    setPage(1);
-    setData([]);
-    handleSubmit();
-  };
-
-
-  useEffect(() => {
-    handleSubmit();
-  }, [handleSubmit]);
 
   return (
     <div className={styles.tableContainer}>
@@ -73,7 +69,7 @@ export default function Table() {
         </tbody>
       </table>
 
-      <button onClick={loadMoreData}>Загрузить ещё {size} данных</button>
+      <button onClick={handleSubmit}>Загрузить ещё {size} данных</button>
     </div>
   );
 }
