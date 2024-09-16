@@ -1,25 +1,21 @@
 .jsonFormContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .jsonFormContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  & form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 100%;
     max-width: 600px;
   }
-  
-  .jsonFormContainer label {
+  & label {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
   }
-  
-  .jsonFormContainer textarea {
+  & textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -28,14 +24,12 @@
     height: 150px;
     box-sizing: border-box;
     resize: vertical;
-  
     &:focus {
       border-color: #007bff;
       outline: none;
     }
   }
-  
-  .jsonFormContainer button {
+  & button {
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -43,15 +37,13 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
-    
     &:hover {
       background-color: #218838;
     }
   }
-  
-  .jsonFormContainer p {
+  & p {
     margin-top: 15px;
     font-size: 14px;
     color: #333;
   }
-  
+}

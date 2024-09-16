@@ -1,12 +1,11 @@
-import './App.scss';
-import { useState } from 'react';
-import Header from './Header/Header';
-import SelectAction from './SelectAction/SelectAction';
-import JsonForm from './JsonForm/JsonForm';
-import Table from './Table/Table';
+import { useState } from "react";
+import Header from "./components/Header/Header";
+import SelectAction from "./components/SelectAction/SelectAction";
+import JsonForm from "./components/JsonForm/JsonForm";
+import Table from "./components/Table/Table";
 
 export default function App() {
-  const [selectedAction, setSelectedAction] = useState('post_entities');
+  const [selectedAction, setSelectedAction] = useState("post_entities");
   const handleSelectChange = (value) => {
     setSelectedAction(value);
   };
@@ -15,9 +14,8 @@ export default function App() {
     <>
       <Header />
       <SelectAction onSelectChange={handleSelectChange} />
-      
-      {selectedAction === "post_entities" && <JsonForm />} {/* Форма с отправкой данных */}
-      {selectedAction === "get_entities" && <Table />} {/* Таблица с получением данных */}
+      {selectedAction === "post_entities" && <JsonForm />}{""}
+      {selectedAction === "get_entities" && <Table />}{""}
     </>
   );
 }

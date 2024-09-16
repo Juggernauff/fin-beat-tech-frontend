@@ -1,16 +1,13 @@
 .selectActionContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .selectActionContainer label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  & label {
     font-size: 16px;
     margin-bottom: 10px;
   }
-  
-  .selectActionContainer select {
+  & select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -18,10 +15,9 @@
     width: 200px;
     max-width: 100%;
     cursor: pointer;
-    
     &:focus {
       border-color: #007bff;
       outline: none;
     }
   }
-  
+}
